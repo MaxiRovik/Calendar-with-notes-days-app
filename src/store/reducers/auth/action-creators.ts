@@ -2,7 +2,7 @@ import {AuthActionEnum, SetAuthAction, SetErrorAction, SetIsLoadingAction, SetUs
 import {IUser} from "../../../models/IUser";
 import {AppDispatch} from "../../index";
 import axios from "axios";
-import UserService from "../../../api/UserSwrvice";
+import UserService from "../../../api/UserService";
 
 export const AuthActionCreators = {
     setUser: (user: IUser): SetUserAction => ({ type: AuthActionEnum.SET_USER, payload: user}),
@@ -19,8 +19,8 @@ export const AuthActionCreators = {
                 if (mockUser) {
                     localStorage.setItem('auth', 'true');
                     localStorage.setItem('username', mockUser.username);
-                    dispatch(AuthActionCreators.setIsAuth(true))
                     dispatch(AuthActionCreators.setUser(mockUser))
+                    dispatch(AuthActionCreators.setIsAuth(true))
                 } else {
                     dispatch(AuthActionCreators.setError("Error: incorrect username or password"))
                 }
