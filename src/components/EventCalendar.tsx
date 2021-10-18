@@ -10,11 +10,8 @@ interface EvenCalendarProps {
 const EventCalendar: FC<EvenCalendarProps> = (props) => {
 
     function dateCellRender(value: Moment) {
-
         const formatedDate = formatDate(value.toDate());
-
         const currentEventsDay = props.events.filter(event => event.date === formatedDate)
-        console.log(currentEventsDay, + '  ', formatedDate)
         return (
             <div>
                 {currentEventsDay.map((ev, index) =>
