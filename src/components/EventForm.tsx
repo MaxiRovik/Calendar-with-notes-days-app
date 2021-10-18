@@ -45,7 +45,7 @@ const submitForm =() => {
                 <Form.Item
                     label="event date "
                     name="date"
-                    rules={[rules.required()]}
+                    rules={[rules.required(), rules.isDateAfter("You can't create events in the past ")]}
                 >
                     <DatePicker  onChange ={(date)=> selectDate(date)}/>
                 </Form.Item>
